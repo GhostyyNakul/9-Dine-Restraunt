@@ -119,7 +119,11 @@ let customersStore: any[] = [];
 
 let notificationsStore: any[] = [];
 
+let currentAdminEmail = process.env.ADMIN_EMAIL || 'admin@7dine.com';
+let currentAdminPassword = process.env.ADMIN_PASSWORD || '7Dine@Admin2026!';
+
 let adminSettings = {
+  adminEmail: currentAdminEmail,
   adminPhone: process.env.ADMIN_PHONE_NUMBER || '+919876543210',
   autoSmsCustomer: true,
   autoSmsAdmin: true,
@@ -217,13 +221,27 @@ app.get('/api/health', (req, res) => {
 
 // Admin Auth Login
 app.post('/api/admin/login', (req, res) => {
-  const { email } = req.body;
+  const { email, password } = req.body;
+
+  if (
+    !email ||
+    !password ||
+    email.trim().toLowerCase() !== currentAdminEmail.toLowerCase() ||
+    password !== currentAdminPassword
+  ) {
+    res.status(401).json({
+      success: false,
+      message: 'Invalid admin credentials. Access denied.'
+    });
+    return;
+  }
+
   res.json({
     success: true,
     token: 'admin-session-token-7dine-secure',
     user: {
       uid: 'admin-uid-001',
-      email: email || 'admin@example.com',
+      email: currentAdminEmail,
       displayName: 'Restaurant Administrator'
     }
   });
@@ -594,6 +612,7 @@ app.patch('/api/notifications/read-all', (req, res) => {
 
 // GET Admin Settings
 app.get('/api/settings', (req, res) => {
+  adminSettings.adminEmail = currentAdminEmail;
   adminSettings.mongodbConfigured = isMongoConnected && mongoose.connection.readyState === 1;
   adminSettings.twilioConfigured = !!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN);
   res.json({ success: true, settings: adminSettings });
@@ -601,6 +620,13 @@ app.get('/api/settings', (req, res) => {
 
 // POST Update Settings
 app.post('/api/settings', (req, res) => {
+  if (req.body.adminEmail && req.body.adminEmail.trim()) {
+    currentAdminEmail = req.body.adminEmail.trim();
+    adminSettings.adminEmail = currentAdminEmail;
+  }
+  if (req.body.adminPassword && req.body.adminPassword.trim()) {
+    currentAdminPassword = req.body.adminPassword.trim();
+  }
   if (req.body.adminPhone) {
     adminSettings.adminPhone = req.body.adminPhone;
   }

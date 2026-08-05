@@ -115,6 +115,8 @@ export interface AdminNotification {
 }
 
 export interface AdminSettings {
+  adminEmail?: string;
+  adminPassword?: string;
   adminPhone: string;
   autoSmsCustomer: boolean;
   autoSmsAdmin: boolean;

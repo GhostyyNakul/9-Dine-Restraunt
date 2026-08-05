@@ -8,6 +8,11 @@ interface SettingsTabProps {
 
 export default function SettingsTab({ settings, onSaveSettings }: SettingsTabProps) {
   const [adminPhone, setAdminPhone] = useState(settings.adminPhone || '+919876543210');
+  const [adminEmail, setAdminEmail] = useState(settings.adminEmail || 'admin@7dine.com');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const [autoSmsCustomer, setAutoSmsCustomer] = useState(settings.autoSmsCustomer);
   const [autoSmsAdmin, setAutoSmsAdmin] = useState(settings.autoSmsAdmin);
   const [saving, setSaving] = useState(false);
@@ -15,8 +20,33 @@ export default function SettingsTab({ settings, onSaveSettings }: SettingsTabPro
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setError('');
+
+    if (newPassword || confirmPassword) {
+      if (newPassword !== confirmPassword) {
+        setError('New passwords do not match. Please verify.');
+        return;
+      }
+      if (newPassword.length < 6) {
+        setError('Password should be at least 6 characters long.');
+        return;
+      }
+    }
+
     setSaving(true);
-    await onSaveSettings({ adminPhone, autoSmsCustomer, autoSmsAdmin });
+    const updates: Partial<AdminSettings> = {
+      adminPhone,
+      adminEmail,
+      autoSmsCustomer,
+      autoSmsAdmin,
+    };
+    if (newPassword) {
+      updates.adminPassword = newPassword;
+    }
+
+    await onSaveSettings(updates);
+    setNewPassword('');
+    setConfirmPassword('');
     setSaving(false);
     setSavedMsg(true);
     setTimeout(() => setSavedMsg(false), 3000);
@@ -38,8 +68,77 @@ export default function SettingsTab({ settings, onSaveSettings }: SettingsTabPro
           )}
         </div>
 
+        {/* Admin Login Credentials */}
+        <div className="space-y-4">
+          <h4 className="text-xs font-label-caps text-[#f2ca50] uppercase flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-sm">security</span>
+            <span>Admin Portal Credentials & Security</span>
+          </h4>
+
+          {error && (
+            <div className="bg-rose-950/60 border border-rose-500/50 text-rose-300 text-xs p-3 rounded-xl flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm">error</span>
+              <span>{error}</span>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-label-caps text-[#d0c5af] mb-1 uppercase">
+                Admin Login Email *
+              </label>
+              <input
+                type="email"
+                required
+                value={adminEmail}
+                onChange={(e) => setAdminEmail(e.target.value)}
+                placeholder="admin@7dine.com"
+                className="w-full bg-[#1c1b1b] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl font-mono"
+              />
+            </div>
+
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <label className="text-xs font-label-caps text-[#d0c5af] uppercase">
+                  New Admin Password
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-[10px] text-[#f2ca50] hover:underline"
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Leave blank to keep current"
+                className="w-full bg-[#1c1b1b] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl"
+              />
+            </div>
+          </div>
+
+          {newPassword && (
+            <div>
+              <label className="block text-xs font-label-caps text-[#d0c5af] mb-1 uppercase">
+                Confirm New Admin Password *
+              </label>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Re-enter new password"
+                className="w-full bg-[#1c1b1b] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl"
+              />
+            </div>
+          )}
+        </div>
+
         {/* Admin Phone Number */}
-        <div>
+        <div className="pt-2 border-t border-[#4d4635]/30">
           <label className="block text-xs font-label-caps text-[#d0c5af] mb-1 uppercase">
             Restaurant Owner / Admin SMS Alert Phone Number *
           </label>

@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenAdmin?: () => void;
+}
+
+export default function Footer({ onOpenAdmin }: FooterProps) {
   const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
 
   return (
@@ -127,9 +131,21 @@ export default function Footer() {
             <span className="material-symbols-outlined text-xs">open_in_new</span>
           </a>
 
-          <p className="text-[10px] text-[#4d4635] mt-6 uppercase tracking-widest font-label-caps">
-            © 2026 7 DINE LUXURY DINING. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex items-center justify-between flex-wrap gap-2 mt-6 pt-4 border-t border-[#4d4635]/20">
+            <p className="text-[10px] text-[#4d4635] uppercase tracking-widest font-label-caps">
+              © 2026 7 DINE LUXURY DINING. ALL RIGHTS RESERVED.
+            </p>
+            {onOpenAdmin && (
+              <button
+                onClick={onOpenAdmin}
+                className="text-[10px] text-[#4d4635] hover:text-[#d0c5af] transition-colors font-label-caps uppercase tracking-wider flex items-center gap-1 opacity-60 hover:opacity-100 group"
+                title="Staff Portal (Ctrl + Shift + A)"
+              >
+                <span className="material-symbols-outlined text-[11px] group-hover:text-[#f2ca50] transition-colors">lock</span>
+                <span>Staff Access</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

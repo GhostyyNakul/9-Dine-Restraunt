@@ -71,7 +71,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }: Adm
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@example.com"
+              placeholder="admin@7dine.com"
               className="w-full bg-[#131313] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl"
             />
           </div>

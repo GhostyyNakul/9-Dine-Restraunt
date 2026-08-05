@@ -139,7 +139,30 @@ export default function App() {
     }
   }, [reservations]);
 
+  // Secret keyboard shortcut for owner/admin access: Ctrl + Shift + A / Cmd + Shift + A
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        if (adminUser) {
+          setIsAdminDashboardOpen(true);
+        } else {
+          setIsAdminLoginOpen(true);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [adminUser]);
+
   // Admin Auth Handlers
+  const handleOpenAdmin = () => {
+    if (adminUser) {
+      setIsAdminDashboardOpen(true);
+    } else {
+      setIsAdminLoginOpen(true);
+    }
+  };
   const handleAdminLoginSuccess = (user: { email: string; token: string }) => {
     setAdminUser(user);
     try {
@@ -393,29 +416,8 @@ export default function App() {
         <GuestReviews />
       </main>
 
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Admin Portal Trigger */}
-      <div className="fixed bottom-4 right-4 z-40">
-        <button
-          onClick={() => {
-            if (adminUser) {
-              setIsAdminDashboardOpen(true);
-            } else {
-              setIsAdminLoginOpen(true);
-            }
-          }}
-          className="bg-[#1c1b1b]/90 hover:bg-[#005736] text-[#f2ca50] hover:text-[#82cba0] border border-[#f2ca50]/40 px-4 py-2 rounded-full font-label-caps text-xs shadow-2xl backdrop-blur-md flex items-center gap-2 transition-all group"
-          title="Admin Control Portal"
-        >
-          <span className="material-symbols-outlined text-sm">admin_panel_settings</span>
-          <span className="font-semibold">Admin Portal</span>
-          {adminNotifications.filter((n) => !n.read).length > 0 && (
-            <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-          )}
-        </button>
-      </div>
+      {/* Footer with subtle staff portal trigger */}
+      <Footer onOpenAdmin={handleOpenAdmin} />
 
       {/* Admin Login Modal */}
       <AdminLoginModal
