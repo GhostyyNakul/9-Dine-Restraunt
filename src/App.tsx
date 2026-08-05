@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import WelcomeSplash from './components/WelcomeSplash';
 import Navbar from './components/Navbar';
 import HeroCanvas from './components/HeroCanvas';
 import AboutSection from './components/AboutSection';
@@ -284,6 +285,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#131313] text-[#e5e2e1] relative font-vietnam selection:bg-[#f2ca50] selection:text-[#3c2f00]">
+      {/* Welcome Splash Screen on page refresh / load */}
+      <WelcomeSplash />
       
       {/* Sticky Navigation */}
       <Navbar
