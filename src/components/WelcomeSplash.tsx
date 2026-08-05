@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { RESTAURANT_INFO } from '../data/restaurantData';
 
 interface WelcomeSplashProps {
   onComplete?: () => void;
@@ -30,23 +31,26 @@ export default function WelcomeSplash({ onComplete }: WelcomeSplashProps) {
           {/* Subtle Ambient Golden Glow in Background */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: [0.8, 1.2, 1], opacity: [0, 0.35, 0.2] }}
+            animate={{ scale: [0.8, 1.25, 1], opacity: [0, 0.4, 0.25] }}
             transition={{ duration: 2, ease: 'easeOut' }}
-            className="absolute w-[500px] h-[500px] rounded-full bg-radial from-[#f2ca50]/20 via-[#005736]/10 to-transparent blur-3xl pointer-events-none"
+            className="absolute w-[550px] h-[550px] rounded-full bg-radial from-[#f2ca50]/25 via-[#005736]/15 to-transparent blur-3xl pointer-events-none"
           />
 
           <div className="relative z-10 max-w-lg mx-auto flex flex-col items-center">
-            {/* Emblem / Monogram Logo */}
+            {/* Official 7 Dine Logo */}
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="w-16 h-16 rounded-full border border-[#f2ca50]/40 bg-[#171614] flex items-center justify-center shadow-2xl mb-6 relative group"
+              initial={{ opacity: 0, scale: 0.75, y: -15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: 'easeOut' }}
+              className="relative mb-6 group"
             >
-              <div className="absolute inset-0 rounded-full border border-[#f2ca50]/20 animate-ping opacity-20" />
-              <span className="font-serif font-bold text-2xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#f8e5a5] via-[#f2ca50] to-[#c79a28]">
-                7D
-              </span>
+              <div className="absolute -inset-3 rounded-full bg-[#f2ca50]/20 blur-xl animate-pulse" />
+              <img
+                src={RESTAURANT_INFO.logoUrl}
+                alt="7 DINE Logo"
+                referrerPolicy="no-referrer"
+                className="w-28 h-28 sm:w-36 sm:h-36 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(242,202,80,0.5)] transition-transform duration-500 group-hover:scale-105"
+              />
             </motion.div>
 
             {/* Sub-header / Tagline */}
