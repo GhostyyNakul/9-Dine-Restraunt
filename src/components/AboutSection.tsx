@@ -1,10 +1,40 @@
+import { useState, useEffect } from 'react';
 import { RESTAURANT_INFO } from '../data/restaurantData';
+import dineInterior from '../assets/images/7dine_interior.webp';
+import dineParty from '../assets/images/screenshot_2026.png';
 
 interface AboutSectionProps {
   onOpenStory: () => void;
 }
 
+const HERITAGE_IMAGES = [
+  {
+    src: dineInterior,
+    alt: '7 Dine luxury dining interior with peach arches and warm ambient lighting',
+    title: 'Luxury Dining Hall & Warm Ambience',
+    subtitle: 'Yamuna Vihar, Delhi'
+  },
+  {
+    src: dineParty,
+    alt: '7 Dine private event setup for birthday party celebration',
+    title: 'Grand Celebrations & Party Suite',
+    subtitle: 'Custom Birthday & Event Decor'
+  }
+];
+
 export default function AboutSection({ onOpenStory }: AboutSectionProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERITAGE_IMAGES.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
     <section className="py-24 md:py-32 px-4 sm:px-8 md:px-16 max-w-[1280px] mx-auto" id="about">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -59,32 +89,61 @@ export default function AboutSection({ onOpenStory }: AboutSectionProps) {
           </div>
         </div>
 
-        {/* Right Image Frame */}
-        <div className="relative group">
-          <div className="absolute -inset-4 border border-[#f2ca50]/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 hidden sm:block rounded-2xl"></div>
-          <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              className="w-full h-[450px] sm:h-[550px] md:h-[600px] object-cover grayscale-[0.25] group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
-              alt="A high-end restaurant interior with dark matte walls, emerald green velvet booths, and intricate gold lighting fixtures."
-              src={RESTAURANT_INFO.aboutImage}
-              loading="lazy"
-              referrerPolicy="no-referrer"
-            />
-            {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#131313]/80 via-transparent to-transparent"></div>
-            
-            <div className="absolute bottom-6 left-6 right-6 p-4 glass-card border-l-2 border-l-[#f2ca50] rounded-xl">
+        {/* Right Auto-scrolling Image Frame */}
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-[#f2ca50] h-[450px] sm:h-[550px] md:h-[600px] bg-[#131313]">
+            {/* Image Stack with Smooth Cross-fade */}
+            {HERITAGE_IMAGES.map((img, idx) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                referrerPolicy="no-referrer"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out transform ${
+                  idx === currentIndex
+                    ? 'opacity-100 scale-100 z-10'
+                    : 'opacity-0 scale-105 z-0'
+                }`}
+              />
+            ))}
+
+            {/* Pagination / Auto-scroll Progress Dots */}
+            <div className="absolute top-4 right-4 z-30 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <span className="text-[10px] text-[#f2ca50] font-mono tracking-widest mr-1">
+                {currentIndex + 1} / {HERITAGE_IMAGES.length}
+              </span>
+              {HERITAGE_IMAGES.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    idx === currentIndex
+                      ? 'w-6 bg-[#f2ca50]'
+                      : 'w-2 bg-white/40 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Dynamic Glass Caption Overlay */}
+            <div className="absolute bottom-6 left-6 right-6 z-30 p-4 glass-card border-l-2 border-l-[#f2ca50] rounded-xl transition-all duration-500">
               <a
                 href={RESTAURANT_INFO.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-label-caps text-[#f2ca50] hover:underline uppercase tracking-widest flex items-center gap-1.5"
               >
-                <span>Yamuna Vihar, Delhi</span>
+                <span>{HERITAGE_IMAGES[currentIndex].subtitle}</span>
                 <span className="material-symbols-outlined text-xs">open_in_new</span>
               </a>
-              <p className="text-sm font-body-md text-[#e5e2e1] mt-1">
-                Luxury Dining Room & Private Suite
+              <p className="text-sm font-body-md text-[#e5e2e1] mt-1 font-semibold">
+                {HERITAGE_IMAGES[currentIndex].title}
               </p>
             </div>
           </div>
@@ -93,3 +152,4 @@ export default function AboutSection({ onOpenStory }: AboutSectionProps) {
     </section>
   );
 }
+
