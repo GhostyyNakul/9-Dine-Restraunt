@@ -9,7 +9,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     name: 'Dal Makhani (Signature)',
     price: 249,
     description: 'Slow-cooked black lentils overnight with authentic butter & cream, 7 Dine style.',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/dal_makhani_bowl_1786022067348.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Overnight Dum Cooked', 'Rich & Creamy', 'Bestseller'],
     dietary: 'veg',
@@ -20,7 +20,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     name: 'Shahi Malai Kofta',
     price: 319,
     description: 'Soft cottage cheese & dry fruit dumplings in a velvety cashew and saffron gravy.',
-    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/shahi_malai_kofta_1786022105482.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Velvety Rich', 'Royal Special'],
     dietary: 'veg',
@@ -42,7 +42,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     name: 'Malai Chaap Roll',
     price: 259,
     description: 'Tandoor-charred soya chaap marinated in creamy malai & aromatic spices wrapped in rumali.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/malai_chaap_roll_1786022085546.jpg',
     category: 'Tandoori Rolls',
     tags: ['Tandoori Flame', 'Creamy Malai'],
     dietary: 'veg',
@@ -53,7 +53,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     name: 'Honey Chilli Potato',
     price: 229,
     description: 'Crispy fried potato fingers tossed in a sweet & spicy honey chili glaze topped with sesame.',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/honey_chilli_potato_1786022118988.jpg',
     category: 'Chinese',
     tags: ['Crunchy', 'Honey Glaze'],
     dietary: 'veg',
@@ -64,7 +64,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     name: 'Paneer Malai Tikka Roll',
     price: 289,
     description: 'Succulent paneer cubes tossed in rich malai marinade, grilled over charcoal.',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/paneer_tikka_roll_1786022136554.jpg',
     category: 'Tandoori Rolls',
     tags: ['Charcoal Smoked', 'Chef Secret'],
     dietary: 'veg',
@@ -101,7 +101,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Butter Chowmein',
     price: 239,
     description: 'Rich chowmein noodles sautéed generously in amul butter.',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Amul Butter', 'Indulgent'],
     dietary: 'veg'
@@ -111,7 +111,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chilli Garlic Chowmein',
     price: 249,
     description: 'Spicy wok noodles infused with crushed red chillies & garlic.',
-    image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Spicy', 'Chilli Garlic'],
     dietary: 'veg'
@@ -121,7 +121,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Singapuri Chowmein',
     price: 249,
     description: 'Special curry-flavored wok noodles with vegetables & crunchy veggies.',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Flavorful', 'Tangy'],
     dietary: 'veg'
@@ -131,7 +131,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Paneer Chowmein',
     price: 259,
     description: 'Delicious noodles tossed with golden fried paneer cubes.',
-    image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Fresh Paneer'],
     dietary: 'veg'
@@ -141,7 +141,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Butter Paneer Chowmein',
     price: 259,
     description: 'Rich chowmein tossed with fresh paneer & loaded butter.',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Butter Rich', 'Paneer Special'],
     dietary: 'veg'
@@ -161,7 +161,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chilli Potato',
     price: 209,
     description: 'Crispy potatoes tossed in hot chili garlic sauce.',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/honey_chilli_potato_1786022118988.jpg',
     category: 'Chinese',
     tags: ['Spicy', 'Crispy'],
     dietary: 'veg'
@@ -181,7 +181,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Manchurian (Gravy)',
     price: 249,
     description: 'Veg Manchurian dumplings simmered in dark savory Chinese gravy.',
-    image: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Rich Gravy'],
     dietary: 'veg'
@@ -201,7 +201,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chilli Chaap',
     price: 269,
     description: 'Tender soya chaap sautéed with spring onions and green chillies.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/soya_chaap_masala_1786022186872.jpg',
     category: 'Chinese',
     tags: ['Soya Chaap Special'],
     dietary: 'veg'
@@ -231,7 +231,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chilli Paneer (Dry)',
     price: 289,
     description: 'Pan-fried cottage cheese with crunchy bell peppers and green chillies.',
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Crispy Starter'],
     dietary: 'veg'
@@ -241,7 +241,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Crispy Sweet Corn',
     price: 239,
     description: 'Golden sweet corn kernels deep fried & seasoned with herbs & chillies.',
-    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/crispy_sweet_corn_1786022235464.jpg',
     category: 'Chinese',
     tags: ['Crunchy Delight'],
     dietary: 'veg'
@@ -251,7 +251,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Combo - Fried Rice + Manchurian + Cold Drink',
     price: 279,
     description: 'Complete Chinese meal with wok fried rice, manchurian gravy & refreshing drink.',
-    image: 'https://images.unsplash.com/photo-1625398407796-82650a8c135f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=800',
     category: 'Chinese',
     tags: ['Value Combo', 'Full Meal'],
     dietary: 'veg'
@@ -323,7 +323,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Garlic Naan',
     price: 50,
     description: 'Tandoori naan topped with roasted minced garlic & fresh coriander.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/garlic_naan_bread_1786022151075.jpg',
     category: 'Roti/Paratha/Naan',
     tags: ['Garlic Butter'],
     dietary: 'veg'
@@ -333,7 +333,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Aloo Pyaaz Naan',
     price: 55,
     description: 'Stuffed naan with spicy mashed potato and onion mix.',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/stuffed_paneer_paratha_1786022216769.jpg',
     category: 'Roti/Paratha/Naan',
     tags: ['Spicy Potato & Onion'],
     dietary: 'veg'
@@ -343,7 +343,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Paneer Naan',
     price: 60,
     description: 'Leavened flatbread generously stuffed with spiced cottage cheese.',
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/stuffed_paneer_paratha_1786022216769.jpg',
     category: 'Roti/Paratha/Naan',
     tags: ['Stuffed Paneer'],
     dietary: 'veg'
@@ -363,7 +363,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Paneer Paratha',
     price: 60,
     description: 'Flaky paratha stuffed with seasoned cottage cheese & roasted cumin.',
-    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/stuffed_paneer_paratha_1786022216769.jpg',
     category: 'Roti/Paratha/Naan',
     tags: ['Paneer Stuffed'],
     dietary: 'veg'
@@ -375,7 +375,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Shahi Chaap',
     price: 239,
     description: 'Rich soya chaap simmered in creamy royal cashew & tomato gravy.',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/soya_chaap_masala_1786022186872.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Royal Creamy'],
     dietary: 'veg'
@@ -385,7 +385,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chaap Butter Masala',
     price: 239,
     description: 'Tandoori soya chaap cooked in rich buttery tomato onion gravy.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/soya_chaap_masala_1786022186872.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Butter Masala', 'Bestseller'],
     dietary: 'veg'
@@ -395,7 +395,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Kadhai Chaap',
     price: 259,
     description: 'Soya chaap tossed with capsicum and fresh pounded kadhai spices.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/soya_chaap_masala_1786022186872.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Kadhai Spices'],
     dietary: 'veg'
@@ -425,7 +425,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Dum Aloo',
     price: 219,
     description: 'Baby potatoes slow dum-cooked in spiced yoghurt gravy.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/dum_aloo_curry_1786022295310.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Classic Kashmiri Style'],
     dietary: 'veg'
@@ -435,7 +435,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Malai Kofta',
     price: 269,
     description: 'Golden paneer-potato dumplings simmered in rich cashew cream gravy.',
-    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/shahi_malai_kofta_1786022105482.jpg',
     category: 'Gravy Chaap & Mushroom',
     tags: ['Creamy & Sweet'],
     dietary: 'veg'
@@ -447,7 +447,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Yellow Dal Tadka',
     price: 229,
     description: 'Yellow arhar dal tempered with ghee, garlic, cumin & red chillies.',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/yellow_dal_tadka_1786022201957.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Desi Ghee Tadka'],
     dietary: 'veg'
@@ -457,7 +457,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Dal Handi',
     price: 259,
     description: 'Black lentil & kidney beans cooked slow in handi with aromatic herbs.',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/yellow_dal_tadka_1786022201957.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Handi Special'],
     dietary: 'veg'
@@ -467,7 +467,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Rajma',
     price: 229,
     description: 'Red kidney beans slow cooked in rich onion tomato masala sauce.',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/rajma_masala_bowl_1786022259600.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Home Style'],
     dietary: 'veg'
@@ -477,7 +477,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chana Masala',
     price: 229,
     description: 'Tangy chickpea curry spiced with pomegranate powder & amchur.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/chana_masala_bowl_1786022277273.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Pint-Sized Tangy'],
     dietary: 'veg'
@@ -489,7 +489,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Spring Roll',
     price: 239,
     description: 'Crispy fried rolls stuffed with shredded vegetables & noodles.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/crispy_spring_rolls_1786022174128.jpg',
     category: 'Tandoori Rolls',
     tags: ['Crispy Crust'],
     dietary: 'veg'
@@ -499,7 +499,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Chatpati Chaap Roll',
     price: 249,
     description: 'Spicy tangy chaap wrapped with mint chutney and fresh onion rings.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/malai_chaap_roll_1786022085546.jpg',
     category: 'Tandoori Rolls',
     tags: ['Spicy Tangy'],
     dietary: 'veg'
@@ -509,7 +509,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Achari Chaap Roll',
     price: 259,
     description: 'Soya chaap steeped in pickled spice marinade, grilled over coals.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/malai_chaap_roll_1786022085546.jpg',
     category: 'Tandoori Rolls',
     tags: ['Achari Flavor'],
     dietary: 'veg'
@@ -519,7 +519,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Paneer Tikka Roll',
     price: 289,
     description: 'Smoked tandoori paneer wrapped in warm flatbread with mint sauce.',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/paneer_tikka_roll_1786022136554.jpg',
     category: 'Tandoori Rolls',
     tags: ['Tandoori Paneer'],
     dietary: 'veg'
@@ -531,7 +531,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Tawa Chaap Masala',
     price: 259,
     description: 'Soya chaap tossed on iron tawa with minced tomatoes, chillies & spices.',
-    image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/images/soya_chaap_masala_1786022186872.jpg',
     category: 'Tawa Special',
     tags: ['Street Style Tawa'],
     dietary: 'veg'
@@ -563,7 +563,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Jeera Rice',
     price: 169,
     description: 'Steamed basmati rice tempered with golden cumin seeds & desi ghee.',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&q=80&w=800',
     category: 'Rice & Biryani',
     tags: ['Basmati'],
     dietary: 'veg'
@@ -583,7 +583,7 @@ export const FULL_MENU: MenuItem[] = [
     name: 'Paneer Fried Rice',
     price: 239,
     description: 'Basmati rice wok tossed with paneer cubes, spring onions & soy.',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=800',
     category: 'Rice & Biryani',
     tags: ['Chinese Style'],
     dietary: 'veg'
