@@ -11,7 +11,6 @@ interface FullMenuModalProps {
 export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenuModalProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [dietaryFilter, setDietaryFilter] = useState<'all' | 'veg' | 'non-veg'>('all');
 
   if (!isOpen) return null;
 
@@ -24,12 +23,7 @@ export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenu
 
     const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
 
-    const matchesDietary =
-      dietaryFilter === 'all' ||
-      (dietaryFilter === 'veg' && (item.dietary === 'veg' || item.dietary === 'vegan')) ||
-      (dietaryFilter === 'non-veg' && item.dietary === 'non-veg');
-
-    return matchesSearch && matchesCategory && matchesDietary;
+    return matchesSearch && matchesCategory;
   });
 
   return (
@@ -51,9 +45,9 @@ export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenu
 
         {/* Search & Category Filter Bar */}
         <div className="p-4 sm:p-6 border-b border-[#4d4635]/40 bg-[#131313]/60 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
             {/* Search Input */}
-            <div className="relative flex-1">
+            <div className="relative flex-1 w-full">
               <span className="material-symbols-outlined absolute left-3 top-2.5 text-[#d0c5af] text-xl">
                 search
               </span>
@@ -66,24 +60,10 @@ export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenu
               />
             </div>
 
-            {/* Dietary Toggle */}
-            <div className="flex items-center gap-1 bg-[#201f1f] p-1 border border-[#4d4635] rounded-full self-start sm:self-auto">
-              <button
-                onClick={() => setDietaryFilter('all')}
-                className={`px-3.5 py-1 rounded-full font-label-caps text-xs ${
-                  dietaryFilter === 'all' ? 'bg-[#f2ca50] text-[#3c2f00] font-bold shadow-sm' : 'text-[#d0c5af]'
-                }`}
-              >
-                All Veg
-              </button>
-              <button
-                onClick={() => setDietaryFilter('veg')}
-                className={`px-3.5 py-1 rounded-full font-label-caps text-xs ${
-                  dietaryFilter === 'veg' ? 'bg-[#8dd6ab] text-[#003921] font-bold shadow-sm' : 'text-[#d0c5af]'
-                }`}
-              >
-                Vegetarian
-              </button>
+            {/* Pure Veg Badge */}
+            <div className="flex items-center gap-2 px-4 py-2 bg-[#0a2016] border border-[#82cba0]/40 rounded-full text-[#82cba0] text-xs font-label-caps whitespace-nowrap self-start sm:self-auto shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#82cba0] animate-pulse"></span>
+              <span className="font-semibold tracking-wider">100% Pure Veg</span>
             </div>
           </div>
 
