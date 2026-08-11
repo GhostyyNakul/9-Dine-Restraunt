@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
-import { FULL_MENU, CHEFS_SPECIALS } from '../data/restaurantData';
+import { motion } from 'motion/react';
+import { FULL_MENU } from '../data/restaurantData';
 import { MenuItem } from '../types';
 
 interface ChefsSpecialsProps {
@@ -118,9 +119,15 @@ export default function ChefsSpecials({ onAddToCart, onOpenFullMenu }: ChefsSpec
             className="flex flex-col gap-3.5 max-h-[570px] overflow-y-auto pr-2 scroll-smooth custom-scrollbar"
           >
             {displayedItems.map((item) => (
-              <div
+              <motion.div
                 key={item.id}
-                className="glass-card p-4 sm:p-5 border border-[#f2ca50]/20 hover:border-[#f2ca50]/60 transition-all rounded-2xl bg-[#201f1f]/90 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl group hover:-translate-y-0.5"
+                whileHover={{
+                  y: -5,
+                  boxShadow: '0 12px 28px -5px rgba(242, 202, 80, 0.22), 0 0 16px 0 rgba(242, 202, 80, 0.15)',
+                  borderColor: 'rgba(242, 202, 80, 0.6)',
+                }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className="glass-card p-4 sm:p-5 border border-[#f2ca50]/20 rounded-2xl bg-[#201f1f]/90 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl group cursor-pointer"
               >
                 {/* Left: Dish Image & Badges */}
                 <div className="relative w-full sm:w-36 h-32 sm:h-28 rounded-xl overflow-hidden flex-shrink-0">
@@ -179,7 +186,7 @@ export default function ChefsSpecials({ onAddToCart, onOpenFullMenu }: ChefsSpec
                     </span>
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
