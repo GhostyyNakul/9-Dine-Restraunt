@@ -25,7 +25,7 @@ export default function StoryModal({ isOpen, onClose, onOpenReservation }: Story
             <span>100% Pure Vegetarian Heritage</span>
           </div>
           <h2 className="font-headline-lg text-3xl sm:text-4xl text-[#e5e2e1]">
-            The 7 Dine Legacy
+            The 9 Dine Legacy
           </h2>
           <p className="font-body-lg text-sm text-[#d0c5af] italic">
             "Where Every Meal Becomes a Celebration"
@@ -34,7 +34,7 @@ export default function StoryModal({ isOpen, onClose, onOpenReservation }: Story
 
         <div className="space-y-4 font-body-md text-sm text-[#d0c5af] leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
           <p>
-            Established in the heart of Yamuna Vihar, Delhi, <strong className="text-[#f2ca50]">7 Dine</strong> was born from a singular passion: to elevate regional 100% pure vegetarian culinary heritage into an unsparing luxury art form.
+            Established in the heart of Yamuna Vihar, Delhi, <strong className="text-[#f2ca50]">9 Dine</strong> was born from a singular passion: to elevate regional 100% pure vegetarian culinary heritage into an unsparing luxury art form.
           </p>
 
           <div className="my-4 overflow-hidden rounded-xl border border-[#f2ca50]/30 shadow-lg">

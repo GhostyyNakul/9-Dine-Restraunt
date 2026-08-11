@@ -8,7 +8,7 @@ interface SettingsTabProps {
 
 export default function SettingsTab({ settings, onSaveSettings }: SettingsTabProps) {
   const [adminPhone, setAdminPhone] = useState(settings.adminPhone || '+919876543210');
-  const [adminEmail, setAdminEmail] = useState(settings.adminEmail || 'admin@7dine.com');
+  const [adminEmail, setAdminEmail] = useState(settings.adminEmail || 'admin@9dine.com');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -92,7 +92,7 @@ export default function SettingsTab({ settings, onSaveSettings }: SettingsTabPro
                 required
                 value={adminEmail}
                 onChange={(e) => setAdminEmail(e.target.value)}
-                placeholder="admin@7dine.com"
+                placeholder="admin@9dine.com"
                 className="w-full bg-[#1c1b1b] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl font-mono"
               />
             </div>

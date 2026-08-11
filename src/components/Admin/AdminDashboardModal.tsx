@@ -67,11 +67,11 @@ export default function AdminDashboardModal({
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-[#005736] text-[#f2ca50] flex items-center justify-center border border-[#f2ca50]/30 font-bold shadow-lg">
-              7D
+              9D
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-headline-md text-lg text-[#f2ca50] font-bold">7 Dine Executive Portal</h2>
+                <h2 className="font-headline-md text-lg text-[#f2ca50] font-bold">9 Dine Executive Portal</h2>
                 <span className="bg-[#005736] text-[#82cba0] text-[10px] font-label-caps px-2 py-0.5 rounded-full border border-[#82cba0]/30">
                   Admin Active
                 </span>

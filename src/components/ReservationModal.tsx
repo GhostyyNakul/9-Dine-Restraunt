@@ -127,7 +127,7 @@ export default function ReservationModal({
                 Royal Table Reservation
               </span>
               <h2 className="font-headline-md text-2xl sm:text-3xl text-[#e5e2e1]">
-                7 Dine Hospitality
+                9 Dine Hospitality
               </h2>
               {preselectedOffer && (
                 <div className="mt-2 inline-block bg-[#005736] text-[#82cba0] text-xs font-label-caps px-3.5 py-1 rounded-full border border-[#82cba0]/30">

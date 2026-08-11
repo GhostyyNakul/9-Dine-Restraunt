@@ -10,13 +10,13 @@ interface AboutSectionProps {
 const HERITAGE_IMAGES = [
   {
     src: dineInterior,
-    alt: '7 Dine luxury dining interior with peach arches and warm ambient lighting',
+    alt: '9 Dine luxury dining interior with peach arches and warm ambient lighting',
     title: 'Luxury Dining Hall & Warm Ambience',
     subtitle: 'Yamuna Vihar, Delhi'
   },
   {
     src: dineParty,
-    alt: '7 Dine private event setup for birthday party celebration',
+    alt: '9 Dine private event setup for birthday party celebration',
     title: 'Grand Celebrations & Party Suite',
     subtitle: 'Custom Birthday & Event Decor'
   }
@@ -49,7 +49,7 @@ export default function AboutSection({ onOpenStory }: AboutSectionProps) {
           </h2>
 
           <p className="font-body-lg text-body-lg text-[#d0c5af] leading-relaxed">
-            At 7 Dine, we believe that dining is more than just a meal; it's a sensory symphony.
+            At 9 Dine, we believe that dining is more than just a meal; it's a sensory symphony.
             Founded on the principles of traditional Indian hospitality mixed with contemporary luxury,
             our kitchen is a laboratory of flavors.
           </p>

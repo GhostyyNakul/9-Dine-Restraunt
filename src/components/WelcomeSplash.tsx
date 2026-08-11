@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { RESTAURANT_INFO } from '../data/restaurantData';
+import BrandLogo from './BrandLogo';
 
 interface WelcomeSplashProps {
   onComplete?: () => void;
@@ -37,20 +37,14 @@ export default function WelcomeSplash({ onComplete }: WelcomeSplashProps) {
           />
 
           <div className="relative z-10 max-w-lg mx-auto flex flex-col items-center">
-            {/* Official 7 Dine Logo */}
+            {/* Official 9 Dine Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.75, y: -15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: 'easeOut' }}
               className="relative mb-6 group"
             >
-              <div className="absolute -inset-3 rounded-full bg-[#f2ca50]/20 blur-xl animate-pulse" />
-              <img
-                src={RESTAURANT_INFO.logoUrl}
-                alt="7 DINE Logo"
-                referrerPolicy="no-referrer"
-                className="w-28 h-28 sm:w-36 sm:h-36 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(242,202,80,0.5)] transition-transform duration-500 group-hover:scale-105"
-              />
+              <BrandLogo size="xl" showText={false} />
             </motion.div>
 
             {/* Sub-header / Tagline */}
@@ -70,7 +64,7 @@ export default function WelcomeSplash({ onComplete }: WelcomeSplashProps) {
               transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
               className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#fff7e6] via-[#f2ca50] to-[#e0b238] drop-shadow-md mb-6"
             >
-              Welcome to 7 Dine
+              Welcome to 9 Dine
             </motion.h1>
 
             {/* Elegant Divider / Loading Bar */}

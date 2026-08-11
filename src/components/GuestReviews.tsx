@@ -216,7 +216,7 @@ export default function GuestReviews() {
                     rows={4}
                     value={newText}
                     onChange={(e) => setNewText(e.target.value)}
-                    placeholder="Tell us about your culinary experience at 7 Dine..."
+                    placeholder="Tell us about your culinary experience at 9 Dine..."
                     className="w-full bg-[#131313] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] p-3 text-sm outline-none rounded-xl"
                   ></textarea>
                 </div>

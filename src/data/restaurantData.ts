@@ -8,7 +8,7 @@ export const CHEFS_SPECIALS: MenuItem[] = [
     id: 'spec-1',
     name: 'Dal Makhani (Signature)',
     price: 249,
-    description: 'Slow-cooked black lentils overnight with authentic butter & cream, 7 Dine style.',
+    description: 'Slow-cooked black lentils overnight with authentic butter & cream, 9 Dine style.',
     image: '/src/assets/images/dal_makhani_bowl_1786022067348.jpg',
     category: 'Dal/Lentil Dishes',
     tags: ['Overnight Dum Cooked', 'Rich & Creamy', 'Bestseller'],
@@ -762,7 +762,7 @@ export const SPECIAL_OFFERS: SpecialOffer[] = [
   },
   {
     id: 'offer-2',
-    title: '7 Dine Special Combo',
+    title: '9 Dine Special Combo',
     badge: 'CHINESE SPECIAL',
     description: 'Fried Rice or Hakka Noodles + Manchurian Gravy + Cold Drink combo for just ₹269.',
     image: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&q=80&w=800',
@@ -776,7 +776,7 @@ export const INITIAL_REVIEWS: Review[] = [
     id: 'rev-1',
     author: 'ADITYA SHARMA',
     role: 'Google Local Guide',
-    text: '"The Dal Makhani and Malai Chaap at 7 Dine are unbeatable in Yamuna Vihar! The food quality and packaging are premium."',
+    text: '"The Dal Makhani and Malai Chaap at 9 Dine are unbeatable in Yamuna Vihar! The food quality and packaging are premium."',
     rating: 5,
     date: '2 weeks ago',
     verifiedGuest: true
@@ -802,15 +802,15 @@ export const INITIAL_REVIEWS: Review[] = [
 ];
 
 export const RESTAURANT_INFO = {
-  name: '7 Dine',
+  name: '9 Dine',
   tagline: 'Where Every Meal Becomes a Celebration | 100% Pure Vegetarian',
   address: 'Yamuna Vihar, Delhi',
   mapsUrl: 'https://maps.app.goo.gl/En8xuqytUpm4PJ2J8',
   hours: 'Open: 12 PM - 11 PM',
   phone: '+91 98765 43210',
-  email: 'reservations@7dine.com',
+  email: 'reservations@9dine.com',
   isPureVeg: true,
-  logoUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD0cKVa-ZamaPGmXZUdmkDqTjVPu_VdP6uKG67C7BcVhjiYYlJU7CPp9FW2m54EfXOuCs75dC268VGqGV9GQK1vEF71XHHGbJ2YqOv02ML4TuN5fLM8M0fS4WZff28mB30bWYOjeBx68o4bkFsjVkTp2Nnwc0DFtM44D3SY-88UUT_tKkCen35Q82msus9NDngRVB2cBzjnf9VhxiFIpBpdDmo3w6H5LqIRz5ZYktDRoy3GEQxFa2v8vAOaBAeFbifWDQ',
-  heroGoldLogo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA3fjxCgnhi9iSvKUE-snWWCHbr_W6nC67iH0cSs_oKIlnk_pxGWUmq2UYOE2jlfW2ulmu0SfqBIP--2ABlIivZGYyRTflFj9JawEl7rWF8A23yWZoVrEoshP9BjbfZK3yoCwSvktI9El8cKG-vUqg5zV8kiBV9QQ1gs1FDuUuEFKS6QUaw6X_9H9QxsEVnuzrID3mu-QN6x19a-d9jCSgQpXaQuEFoO5x93aHTQP3_BO5-RWluaYzUWPGbnJ5Ih_OtfQ',
+  logoUrl: '/src/assets/images/nine_dine_crown_logo_1786474239236.jpg',
+  heroGoldLogo: '/src/assets/images/nine_dine_crown_logo_1786474239236.jpg',
   aboutImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMzx7av721H4P3zFYT3UiViA-1HuCv_WUfXaFUIdVF5ZF3Y_33Gy6o65cHXa7cwwzjOgqDuipe-jEwxGTSUZhBZsjzSCwk_GrzTu5pTJ2RKklSShcg8ZfsaHx1BBx1GSzDG8Hw_ABOHU0yyLd3-Acd1eQ3_ir9ERQ0F9a7BMYgLszaB234bKRnFHVaAbm0gxhc9P8xyuyouYe8X--rtGaWBf8F07QOXydt7jdzUaeG-y-VaMYovrUf'
 };

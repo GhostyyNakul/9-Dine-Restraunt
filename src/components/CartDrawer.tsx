@@ -83,7 +83,7 @@ export default function CartDrawer({
       if (response.success && response.order) {
         setPlacedOrderId(response.order.id);
         try {
-          localStorage.removeItem('7dine_cart');
+          localStorage.removeItem('9dine_cart');
         } catch {
           // ignore
         }

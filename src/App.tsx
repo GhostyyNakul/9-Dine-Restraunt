@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import WelcomeSplash from './components/WelcomeSplash';
 import Navbar from './components/Navbar';
 import HeroCanvas from './components/HeroCanvas';
+import BrandLogo from './components/BrandLogo';
 import AboutSection from './components/AboutSection';
 import ChefsSpecials from './components/ChefsSpecials';
 import SpecialOffers from './components/SpecialOffers';
@@ -45,7 +46,7 @@ export default function App() {
   const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
   const [adminUser, setAdminUser] = useState<{ email: string; token: string } | null>(() => {
     try {
-      const saved = localStorage.getItem('7dine_admin');
+      const saved = localStorage.getItem('9dine_admin');
       return saved ? JSON.parse(saved) : null;
     } catch {
       return null;
@@ -70,7 +71,7 @@ export default function App() {
   // Cart State
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem('7dine_cart');
+      const saved = localStorage.getItem('9dine_cart');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -80,7 +81,7 @@ export default function App() {
   // User Reservations State
   const [reservations, setReservations] = useState<Reservation[]>(() => {
     try {
-      const saved = localStorage.getItem('7dine_reservations');
+      const saved = localStorage.getItem('9dine_reservations');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -122,9 +123,9 @@ export default function App() {
   useEffect(() => {
     try {
       if (cart.length === 0) {
-        localStorage.removeItem('7dine_cart');
+        localStorage.removeItem('9dine_cart');
       } else {
-        localStorage.setItem('7dine_cart', JSON.stringify(cart));
+        localStorage.setItem('9dine_cart', JSON.stringify(cart));
       }
     } catch {
       // ignore
@@ -133,7 +134,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('7dine_reservations', JSON.stringify(reservations));
+      localStorage.setItem('9dine_reservations', JSON.stringify(reservations));
     } catch {
       // ignore
     }
@@ -166,7 +167,7 @@ export default function App() {
   const handleAdminLoginSuccess = (user: { email: string; token: string }) => {
     setAdminUser(user);
     try {
-      localStorage.setItem('7dine_admin', JSON.stringify(user));
+      localStorage.setItem('9dine_admin', JSON.stringify(user));
     } catch {
       // ignore
     }
@@ -177,7 +178,7 @@ export default function App() {
 
   const handleAdminLogout = () => {
     setAdminUser(null);
-    localStorage.removeItem('7dine_admin');
+    localStorage.removeItem('9dine_admin');
     setIsAdminDashboardOpen(false);
     setToastMessage('Logged out of Admin Portal');
   };
@@ -280,7 +281,7 @@ export default function App() {
   const handleClearCart = () => {
     setCart([]);
     try {
-      localStorage.removeItem('7dine_cart');
+      localStorage.removeItem('9dine_cart');
     } catch {
       // ignore
     }
@@ -327,15 +328,11 @@ export default function App() {
         </div>
 
         {/* Hero Content Overlay */}
-        <div className="relative z-10 text-center flex flex-col items-center px-4 sm:px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center flex flex-col items-center px-4 sm:px-6 max-w-4xl mx-auto pt-12 sm:pt-14 md:pt-16">
           
-          {/* Logo Badge */}
-          <div className="mb-4 sm:mb-6 animate-pulse">
-            <img
-              alt="7 Dine Gold Logo"
-              className="w-28 sm:w-36 md:w-44 mx-auto filter drop-shadow-[0_0_15px_rgba(242,202,80,0.3)]"
-              src={RESTAURANT_INFO.heroGoldLogo}
-            />
+          {/* Logo Badge - Crown as background of 9 */}
+          <div className="mb-3 sm:mb-4">
+            <BrandLogo size="xl" showText={false} />
           </div>
 
           {/* 100% Pure Vegetarian Badge */}
@@ -345,7 +342,7 @@ export default function App() {
           </div>
 
           <h1 className="font-display-lg text-display-lg text-[#f2ca50] mb-3 drop-shadow-2xl">
-            7 Dine
+            9 Dine
           </h1>
 
           <p className="font-body-lg text-body-lg text-[#d0c5af] max-w-2xl mx-auto mb-8 md:mb-10 italic leading-relaxed">

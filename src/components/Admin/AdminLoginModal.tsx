@@ -51,7 +51,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }: Adm
           </div>
           <h2 className="font-headline-md text-2xl text-[#f2ca50]">Admin Portal Login</h2>
           <p className="text-xs text-[#d0c5af] font-body-md">
-            7 Dine Management System & Operational Control
+            9 Dine Management System & Operational Control
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }: Adm
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@7dine.com"
+              placeholder="admin@9dine.com"
               className="w-full bg-[#131313] border border-[#4d4635] focus:border-[#f2ca50] text-[#e5e2e1] px-4 py-2.5 text-sm outline-none rounded-xl"
             />
           </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { RESTAURANT_INFO } from '../data/restaurantData';
+import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
   onOpenReservation: () => void;
@@ -75,13 +75,9 @@ export default function Navbar({ onOpenReservation, onOpenCart, onOpenFullMenu, 
         <div className="flex items-center gap-3">
           <button
             onClick={() => scrollTo('home')}
-            className="flex items-center gap-3 group focus:outline-none"
+            className="group focus:outline-none"
           >
-            <img
-              alt="7 DINE Logo"
-              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              src={RESTAURANT_INFO.logoUrl}
-            />
+            <BrandLogo size="md" showText={false} />
           </button>
           
           {/* 100% Pure Vegetarian Badge */}

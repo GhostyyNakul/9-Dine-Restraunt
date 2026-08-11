@@ -119,8 +119,8 @@ let customersStore: any[] = [];
 
 let notificationsStore: any[] = [];
 
-let currentAdminEmail = process.env.ADMIN_EMAIL || 'admin@7dine.com';
-let currentAdminPassword = process.env.ADMIN_PASSWORD || '7Dine@Admin2026!';
+let currentAdminEmail = process.env.ADMIN_EMAIL || 'admin@9dine.com';
+let currentAdminPassword = process.env.ADMIN_PASSWORD || '9Dine@Admin2026!';
 
 let adminSettings = {
   adminEmail: currentAdminEmail,
@@ -238,7 +238,7 @@ app.post('/api/admin/login', (req, res) => {
 
   res.json({
     success: true,
-    token: 'admin-session-token-7dine-secure',
+    token: 'admin-session-token-9dine-secure',
     user: {
       uid: 'admin-uid-001',
       email: currentAdminEmail,
@@ -326,7 +326,7 @@ app.get('/api/orders', (req, res) => {
 // POST Create Order (Order Flow)
 app.post('/api/orders', async (req, res) => {
   const code = Math.floor(10000 + Math.random() * 90000);
-  const orderId = req.body.id || `7D-ORD-${code}`;
+  const orderId = req.body.id || `9D-ORD-${code}`;
 
   const newOrder = {
     id: orderId,
@@ -372,7 +372,7 @@ app.post('/api/orders', async (req, res) => {
   );
 
   // 3. Customer Confirmation SMS
-  const customerSmsText = `7 Dine Order Confirmed! Reference: ${newOrder.id}. Amount: ₹${newOrder.total}. Your gourmet meal is being prepared. Thank you for dining with us!`;
+  const customerSmsText = `9 Dine Order Confirmed! Reference: ${newOrder.id}. Amount: ₹${newOrder.total}. Your gourmet meal is being prepared. Thank you for dining with us!`;
   const custSmsRes = await sendSMSNotification(newOrder.customerPhone, customerSmsText, true);
   if (custSmsRes.success) {
     newOrder.smsSentLog.push(`Customer Confirmation SMS (${custSmsRes.mode})`);
@@ -418,7 +418,7 @@ app.patch('/api/orders/:id/status', async (req, res) => {
   let statusSmsMessage = '';
   switch (status) {
     case 'Accepted':
-      statusSmsMessage = `Your 7 Dine order #${order.id} has been accepted by the chef!`;
+      statusSmsMessage = `Your 9 Dine order #${order.id} has been accepted by the chef!`;
       break;
     case 'Preparing':
       statusSmsMessage = `Master chefs are preparing order #${order.id} with fresh ingredients.`;
@@ -431,11 +431,11 @@ app.patch('/api/orders/:id/status', async (req, res) => {
       break;
     case 'Delivered':
     case 'Completed':
-      statusSmsMessage = `Order #${order.id} delivered! Enjoy your meal from 7 Dine.`;
+      statusSmsMessage = `Order #${order.id} delivered! Enjoy your meal from 9 Dine.`;
       break;
     case 'Cancelled':
     case 'Rejected':
-      statusSmsMessage = `Notice: Order #${order.id} has been cancelled. Please contact 7 Dine support for assistance.`;
+      statusSmsMessage = `Notice: Order #${order.id} has been cancelled. Please contact 9 Dine support for assistance.`;
       break;
   }
 
@@ -477,7 +477,7 @@ app.delete('/api/orders/:id', async (req, res) => {
     // Send SMS
     await sendSMSNotification(
       order.customerPhone,
-      `Your 7 Dine order #${order.id} has been cancelled.`,
+      `Your 9 Dine order #${order.id} has been cancelled.`,
       true
     );
 
@@ -495,7 +495,7 @@ app.get('/api/reservations', (req, res) => {
 // POST Create Reservation (Reservation Flow)
 app.post('/api/reservations', async (req, res) => {
   const code = Math.floor(1000 + Math.random() * 9000);
-  const resId = req.body.id || `7D-${code}`;
+  const resId = req.body.id || `9D-${code}`;
 
   const newRes = {
     id: resId,
@@ -523,7 +523,7 @@ app.post('/api/reservations', async (req, res) => {
   upsertCustomer(newRes.name, newRes.phone, newRes.email, 0, true);
 
   // 3. Customer Confirmation SMS
-  const custSms = `7 Dine Reservation Request #${newRes.id} Received for ${newRes.date} at ${newRes.time} (${newRes.guests} guests). We will confirm your table shortly!`;
+  const custSms = `9 Dine Reservation Request #${newRes.id} Received for ${newRes.date} at ${newRes.time} (${newRes.guests} guests). We will confirm your table shortly!`;
   const smsRes = await sendSMSNotification(newRes.phone, custSms, true);
   if (smsRes.success) {
     newRes.smsSentLog.push(`Confirmation Request SMS (${smsRes.mode})`);
@@ -568,9 +568,9 @@ app.patch('/api/reservations/:id/status', async (req, res) => {
   // Send status update SMS
   let smsBody = '';
   if (status === 'Approved' || status === 'Confirmed') {
-    smsBody = `Great news! Your 7 Dine reservation #${resItem.id} for ${resItem.date} at ${resItem.time} is CONFIRMED. We look forward to welcoming you!`;
+    smsBody = `Great news! Your 9 Dine reservation #${resItem.id} for ${resItem.date} at ${resItem.time} is CONFIRMED. We look forward to welcoming you!`;
   } else if (status === 'Rejected' || status === 'Cancelled') {
-    smsBody = `Notice: Reservation #${resItem.id} at 7 Dine could not be confirmed for ${resItem.date}. Please call us to reschedule.`;
+    smsBody = `Notice: Reservation #${resItem.id} at 9 Dine could not be confirmed for ${resItem.date}. Please call us to reschedule.`;
   }
 
   if (smsBody) {
@@ -656,7 +656,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`7 Dine Restaurant Management System running on http://localhost:${PORT}`);
+    console.log(`9 Dine Restaurant Management System running on http://localhost:${PORT}`);
   });
 }
 

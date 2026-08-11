@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BrandLogo from './BrandLogo';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 interface FooterProps {
@@ -14,11 +15,7 @@ export default function Footer({ onOpenAdmin }: FooterProps) {
         
         {/* Col 1: Brand & Social */}
         <div className="space-y-4">
-          <img
-            alt="7 DINE Logo"
-            className="h-12 w-auto object-contain mb-4"
-            src={RESTAURANT_INFO.logoUrl}
-          />
+          <BrandLogo size="lg" showText={true} className="mb-4" />
           <p className="font-body-md text-sm text-[#d0c5af] leading-relaxed max-w-sm">
             Elevating Indian cuisine to a global art form. Join us for a journey of the senses.
           </p>
@@ -40,10 +37,10 @@ export default function Footer({ onOpenAdmin }: FooterProps) {
             <div className="flex items-center gap-3">
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/7dine.cafe/"
+                href="https://www.instagram.com/nakuldoesstuff/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow 7 Dine on Instagram"
+                aria-label="Follow on Instagram"
                 className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#201f1f] border border-[#4d4635] text-[#d0c5af] hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all hover:scale-105 shadow-md group"
               >
                 <svg className="w-4 h-4 text-[#e1306c] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -52,34 +49,6 @@ export default function Footer({ onOpenAdmin }: FooterProps) {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
                 <span className="text-xs font-label-caps tracking-wide">Instagram</span>
-              </a>
-
-              {/* Facebook */}
-              <a
-                href="https://www.facebook.com/7dine.cafe/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow 7 Dine on Facebook"
-                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#201f1f] border border-[#4d4635] text-[#d0c5af] hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all hover:scale-105 shadow-md group"
-              >
-                <svg className="w-4 h-4 text-[#1877f2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                <span className="text-xs font-label-caps tracking-wide">Facebook</span>
-              </a>
-
-              {/* TripAdvisor */}
-              <a
-                href="https://www.tripadvisor.com/Search?q=7+Dine+Yamuna+Vihar"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Find 7 Dine on TripAdvisor"
-                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#201f1f] border border-[#4d4635] text-[#d0c5af] hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all hover:scale-105 shadow-md group"
-              >
-                <svg className="w-4 h-4 text-[#00af87] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-5.5 13c-1.38 0-2.5-1.12-2.5-2.5S5.12 10 6.5 10s2.5 1.12 2.5 2.5S7.88 15 6.5 15zm0-3.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm11 3.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zm0-3.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zM12 14c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/>
-                </svg>
-                <span className="text-xs font-label-caps tracking-wide">TripAdvisor</span>
               </a>
             </div>
           </div>
@@ -133,7 +102,7 @@ export default function Footer({ onOpenAdmin }: FooterProps) {
 
           <div className="flex items-center justify-between flex-wrap gap-2 mt-6 pt-4 border-t border-[#4d4635]/20">
             <p className="text-[10px] text-[#4d4635] uppercase tracking-widest font-label-caps">
-              © 2026 7 DINE LUXURY DINING. ALL RIGHTS RESERVED.
+              © 2026 9 DINE LUXURY DINING. ALL RIGHTS RESERVED.
             </p>
             {onOpenAdmin && (
               <button
@@ -166,8 +135,8 @@ export default function Footer({ onOpenAdmin }: FooterProps) {
 
             <p className="font-body-md text-xs text-[#d0c5af] leading-relaxed">
               {legalModal === 'privacy'
-                ? 'At 7 Dine Luxury Dining, we preserve the highest standards of guest privacy. All personal data collected during table reservations or order placements is processed securely in compliance with strict privacy standards and is never shared with third parties.'
-                : 'Welcome to 7 Dine. By reserving a table or making an online order, you agree to our restaurant etiquette standards, cancellation window (at least 2 hours prior to reservation), and health & safety compliance rules.'}
+                ? 'At 9 Dine Luxury Dining, we preserve the highest standards of guest privacy. All personal data collected during table reservations or order placements is processed securely in compliance with strict privacy standards and is never shared with third parties.'
+                : 'Welcome to 9 Dine. By reserving a table or making an online order, you agree to our restaurant etiquette standards, cancellation window (at least 2 hours prior to reservation), and health & safety compliance rules.'}
             </p>
 
             <button
