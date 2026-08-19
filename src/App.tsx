@@ -31,6 +31,7 @@ import {
   ReservationStatus
 } from './types';
 import { apiService } from './services/apiService';
+import { playFlyToCartAnimation } from './utils/cartAnimation';
 
 export default function App() {
   // Modals & Drawers State
@@ -247,17 +248,23 @@ export default function App() {
   };
 
   // Cart Actions
-  const handleAddToCart = (item: MenuItem) => {
-    setCart((prev) => {
-      const existing = prev.find((ci) => ci.menuItem.id === item.id);
-      if (existing) {
-        return prev.map((ci) =>
-          ci.menuItem.id === item.id ? { ...ci, quantity: ci.quantity + 1 } : ci
-        );
-      }
-      return [...prev, { menuItem: item, quantity: 1 }];
+  const handleAddToCart = (item: MenuItem, sourceElement?: HTMLElement | null) => {
+    playFlyToCartAnimation({
+      sourceElement,
+      imageUrl: item.image,
+      onLanded: () => {
+        setCart((prev) => {
+          const existing = prev.find((ci) => ci.menuItem.id === item.id);
+          if (existing) {
+            return prev.map((ci) =>
+              ci.menuItem.id === item.id ? { ...ci, quantity: ci.quantity + 1 } : ci
+            );
+          }
+          return [...prev, { menuItem: item, quantity: 1 }];
+        });
+        setToastMessage(`Added "${item.name}" to your order.`);
+      },
     });
-    setToastMessage(`Added "${item.name}" to your order.`);
   };
 
   const handleUpdateQuantity = (id: string, delta: number) => {

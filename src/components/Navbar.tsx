@@ -88,14 +88,14 @@ export default function Navbar({ onOpenReservation, onOpenCart, onOpenFullMenu, 
         </div>
 
         {/* Desktop Links - Animated Glass Capsule Bar */}
-        <div className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-[#1c1b1b]/70 backdrop-blur-md border border-[#f2ca50]/25 shadow-lg shadow-black/40">
+        <div className="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-[#1c1b1b]/70 backdrop-blur-md border border-[#f2ca50]/25 shadow-lg shadow-black/40">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`relative px-3.5 lg:px-4 py-1.5 lg:py-2 rounded-full font-label-caps text-[11px] lg:text-xs uppercase tracking-wider transition-colors duration-300 focus:outline-none whitespace-nowrap ${
+                className={`relative px-3.5 xl:px-4 py-1.5 rounded-full font-label-caps text-[11px] xl:text-xs uppercase tracking-wider transition-colors duration-300 focus:outline-none whitespace-nowrap ${
                   isActive
                     ? 'text-[#f2ca50] font-semibold'
                     : 'text-[#d0c5af] hover:text-[#f2ca50]'
@@ -119,12 +119,14 @@ export default function Navbar({ onOpenReservation, onOpenCart, onOpenFullMenu, 
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0 z-20">
           {/* Cart Icon */}
           <button
+            id="navbar-cart-btn"
+            data-cart-basket="true"
             onClick={onOpenCart}
             aria-label="View Order"
-            className="relative p-2 text-[#d0c5af] hover:text-[#f2ca50] transition-colors focus:outline-none"
+            className="relative p-2 text-[#d0c5af] hover:text-[#f2ca50] transition-colors focus:outline-none will-change-transform"
           >
             <span className="material-symbols-outlined text-2xl">shopping_bag</span>
             {cartCount > 0 && (
@@ -145,7 +147,7 @@ export default function Navbar({ onOpenReservation, onOpenCart, onOpenFullMenu, 
           {/* Mobile menu hamburger toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#e5e2e1] hover:text-[#f2ca50] focus:outline-none"
+            className="lg:hidden p-2 text-[#e5e2e1] hover:text-[#f2ca50] focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
             <span className="material-symbols-outlined text-3xl">
@@ -157,7 +159,7 @@ export default function Navbar({ onOpenReservation, onOpenCart, onOpenFullMenu, 
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#1c1b1b]/95 backdrop-blur-xl border-b border-[#f2ca50]/20 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300">
+        <div className="lg:hidden bg-[#1c1b1b]/95 backdrop-blur-xl border-b border-[#f2ca50]/20 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300">
           <div className="flex flex-col space-y-2 font-label-caps text-label-caps uppercase">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;

@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { FULL_MENU } from '../data/restaurantData';
 import { MenuItem } from '../types';
 
 interface FullMenuModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddToCart: (item: MenuItem) => void;
+  onAddToCart: (item: MenuItem, sourceElement?: HTMLElement | null) => void;
 }
 
 export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenuModalProps) {
@@ -96,7 +97,7 @@ export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenu
             filteredMenu.map((item) => (
               <div
                 key={item.id}
-                className="glass-card p-4 border border-[#4d4635]/40 flex gap-4 items-center justify-between bg-[#131313]/80 hover:border-[#f2ca50]/60 transition-all group rounded-xl shadow-md"
+                className="menu-item-row glass-card p-4 border border-[#4d4635]/40 flex gap-4 items-center justify-between bg-[#131313]/80 hover:border-[#f2ca50]/60 transition-all group rounded-xl shadow-md"
               >
                 <img
                   src={item.image}
@@ -125,13 +126,19 @@ export default function FullMenuModal({ isOpen, onClose, onAddToCart }: FullMenu
                   </span>
                 </div>
 
-                <button
-                  onClick={() => onAddToCart(item)}
-                  className="bg-[#201f1f] border border-[#f2ca50] text-[#f2ca50] hover:bg-[#f2ca50] hover:text-[#3c2f00] p-2.5 rounded-xl transition-all flex-shrink-0 shadow-sm"
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={(e) => {
+                    const row = e.currentTarget.closest('.menu-item-row');
+                    const img = (row?.querySelector('img') as HTMLElement | null) || e.currentTarget;
+                    onAddToCart(item, img);
+                  }}
+                  className="bg-[#201f1f] border border-[#f2ca50] text-[#f2ca50] hover:bg-[#f2ca50] hover:text-[#3c2f00] p-2.5 rounded-xl transition-colors flex-shrink-0 shadow-sm"
                   aria-label={`Add ${item.name} to order`}
                 >
                   <span className="material-symbols-outlined text-lg">add_shopping_cart</span>
-                </button>
+                </motion.button>
               </div>
             ))
           )}

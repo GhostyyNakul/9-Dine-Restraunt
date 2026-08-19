@@ -4,7 +4,7 @@ import { FULL_MENU } from '../data/restaurantData';
 import { MenuItem } from '../types';
 
 interface ChefsSpecialsProps {
-  onAddToCart: (item: MenuItem) => void;
+  onAddToCart: (item: MenuItem, sourceElement?: HTMLElement | null) => void;
   onOpenFullMenu: () => void;
 }
 
@@ -176,15 +176,21 @@ export default function ChefsSpecials({ onAddToCart, onOpenFullMenu }: ChefsSpec
 
                 {/* Right: Add to Order Button */}
                 <div className="w-full sm:w-auto flex-shrink-0 pt-1 sm:pt-0">
-                  <button
-                    onClick={() => onAddToCart(item)}
-                    className="w-full sm:w-auto text-[#8dd6ab] hover:text-[#f2ca50] font-label-caps text-xs uppercase tracking-wider flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl border border-[#8dd6ab]/30 hover:border-[#f2ca50] bg-[#131313]/90 hover:bg-[#201f1f] transition-all shadow-md group/btn"
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={(e) => {
+                      const card = e.currentTarget.closest('.glass-card');
+                      const img = (card?.querySelector('img') as HTMLElement | null) || e.currentTarget;
+                      onAddToCart(item, img);
+                    }}
+                    className="w-full sm:w-auto text-[#8dd6ab] hover:text-[#f2ca50] font-label-caps text-xs uppercase tracking-wider flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl border border-[#8dd6ab]/30 hover:border-[#f2ca50] bg-[#131313]/90 hover:bg-[#201f1f] transition-colors shadow-md group/btn"
                   >
                     <span>Add To Order</span>
                     <span className="material-symbols-outlined text-base group-hover/btn:translate-x-1 transition-transform">
                       arrow_forward
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
